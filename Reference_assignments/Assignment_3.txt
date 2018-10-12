@@ -1,0 +1,87 @@
+class Person {
+   private String name;
+    private float age;
+    public String getName() {
+    return name;
+}
+ Person()
+ {
+     
+ }
+ Person(String name, float age)
+ {
+     this.name=name;
+     this.age=age;
+     //System.out.println(this.name);
+     
+ }
+ public void setName(String name) {
+     this.name=name;
+ }
+ public float getAge() {
+     return age;
+ }
+ 
+ public void setAge(float age) {
+     this.age=age;
+ }
+}
+
+class Account {
+    long accNum=1;
+    public long getAccNum(){
+        return accNum;
+    }
+    public void setAccNum(long accNum) {
+        this.accNum=accNum;
+    }
+    private double balance;
+    private Person accHolder= new Person();
+    Account(String name,float age,double balance)
+    {
+        this.balance=balance;
+        getPerson().setAge(age);
+        getPerson().setName(name);
+    }
+    public void deposit(double rupees) {
+        //set the balanceof the account 
+        this.balance=this.balance+rupees;
+            }
+    public void withdraw(double rupees)
+    {
+    if(balance-rupees>=500)
+    {
+        this.balance=this.balance-rupees;
+            }
+    
+}
+public String toString() {
+    return "Name: "+accHolder.getName()+" Age: "+accHolder.getAge()+" AccNumber: "+this.accNum+" Balance: "+this.balance;
+
+}
+public double getBalance()
+{
+    return this.balance;
+    }
+public void setBalance(double bal)
+{
+    if(bal>500)
+        this.balance=bal;
+}
+
+public void setAccountDetails(String name, int age, int balance)
+{
+    accHolder.setName(name);
+    accHolder.setAge(age);
+    this.balance=balance;
+    }
+public Person getPerson()
+{
+    return accHolder;
+    }
+public static void main(String args[])
+{
+    Account a=new Account("TempName",12,3000);
+    System.out.println(a);
+    }
+}

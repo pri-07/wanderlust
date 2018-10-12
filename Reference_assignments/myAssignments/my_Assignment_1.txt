@@ -1,0 +1,70 @@
+package MyPackage;
+import java.math.*;
+
+import java.io.IOException;
+class Person{
+	String firstName;
+	String lastName;
+
+	public enum Gender{M,F};
+	Gender g;
+	BigInteger number;
+	//default constructor
+	public Person()
+	{
+	}
+	
+	//parametrized constructor
+	public Person(String firstName,String lastName, Gender g, BigInteger number)
+	{
+		this.firstName=firstName;
+		this.lastName=lastName;
+		this.number=number;
+		this.g=g;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public BigInteger getNumber() {
+		return number;
+	}
+
+	public void setNumber(BigInteger number) {
+		this.number = number;
+	}
+	//accepting phone number
+	static BigInteger getPhone() {
+		BigInteger ph=new BigInteger("1234567890");
+		return ph;
+	}
+	public static String displayDetails(Person p)
+	{
+		String result=" ";
+		System.out.println("First Name:"+p.firstName);
+		System.out.println("Last Name:"+p.lastName);
+		System.out.println("Gender:"+p.g);
+		System.out.println("Phone Number:"+p.number);
+		return result;
+	}
+	
+
+	public static void main(String[] args)throws IOException {
+		BigInteger number=getPhone();
+		Person p=new Person("Priya","Khosla",Gender.F,number);
+		p.displayDetails(p);
+	
+	}
+}

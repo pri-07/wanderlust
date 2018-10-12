@@ -1,0 +1,43 @@
+package MyPackage;
+import java.math.BigInteger;
+
+class Person
+{
+   public enum Gender{M,F};  
+    String firstName,lastName;
+    Gender gender;
+    long number;
+    public Person()
+    {}
+public Person(String firstName, String lastName,Gender gender,BigInteger number)
+{
+this.firstName=firstName;
+this.lastName=lastName;
+this.number=number.longValue();
+this.gender=gender;
+}
+
+void displayDetails(Person p)
+{
+    System.out.println("FirstName"+":"+firstName);
+    System.out.println("LastName"+":"+lastName);
+    System.out.println("Gender"+":"+gender);
+    System.out.println("Number"+":"+number);
+    
+}  
+}
+class Solution extends Person
+{
+    
+ public static void main(String args[])
+ {
+     Solution s= new Solution();
+     s.getDetails();
+ }
+ public void getDetails()
+    {
+     BigInteger b1=new BigInteger("7895155737");
+     Person p=new Person("Shubham","Rawat",Gender.M,b1);
+     p.displayDetails(p);   
+    }
+}

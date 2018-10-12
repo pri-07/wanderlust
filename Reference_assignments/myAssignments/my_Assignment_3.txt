@@ -1,0 +1,74 @@
+package myPackage3;
+
+public class Account {
+
+	double balance=1000.00;
+	  boolean withdraw(double bal)
+	  {
+	    this.balance = this.balance - bal;
+	    return true;
+	  }
+} 
+class SavingsAccount extends Account
+{
+	final double minBalance=500.0;
+	boolean withdraw(double bal)
+	{
+		System.out.println("Current balance: "+balance);
+		System.out.print("Request to withdraw amount:"+bal+" from SAVINGS ACCOUNT ");
+		if(balance-bal<minBalance)
+		{
+			return false;
+		}
+		else
+		{
+			balance=balance-bal;
+			return true;
+		}
+	}
+}
+class CurrentAccount extends Account
+{
+	boolean withdraw(double bal)
+	  {
+		double overdraftLimit=-2000.0;
+		System.out.println("Current balance: "+balance);
+		System.out.print("Request to withdraw amount:"+bal+" from CURRENT ACCOUNT ");
+		if(balance-bal <overdraftLimit)
+		{
+			return false;
+		}
+		else
+		{
+			System.out.println("Withdraw successful");
+			balance=balance-bal;
+			return true;
+		}
+			
+	  }
+	public static void main(String[] args) {
+		//Savings Account
+		SavingsAccount y=new SavingsAccount();
+		boolean sflag=y.withdraw(600.0);
+		if(sflag==true){
+			System.out.println("Withdraw possible from savings account. New balance="+y.balance);
+			System.out.println("\n");
+		}
+		else{
+			System.out.println("Not possible to withdraw.Balance remains:"+y.balance);
+		}
+		
+		
+		//Current account
+		CurrentAccount x=new CurrentAccount();
+		boolean cflag=x.withdraw(20000.0);
+		if(cflag==true){
+			System.out.println("Withdraw possible. new balance=\n"+x.balance);
+		}
+		else{
+			System.out.println("Overdraft limit surpassed. Can't withdraw. Balance remains:"+x.balance);
+		}
+	}
+}
+
+

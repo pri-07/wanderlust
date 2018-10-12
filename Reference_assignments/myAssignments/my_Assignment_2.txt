@@ -1,0 +1,116 @@
+package myPackage2;
+
+public class Person {
+    // complete the class
+	String name;
+	float age;
+	
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public float getAge() {
+		return age;
+	}
+	public void setAge(float age) {
+		this.age = age;
+	}
+	
+}
+
+class Account extends Person{
+    // complete the class
+	long accNum;
+	double balance;
+	Person accHolder;
+	String result;
+	
+	//getters and setters
+	public long getAccNum() {
+		return accNum;
+	}
+
+	public void setAccNum(long accNum) {
+		this.accNum = accNum;
+	}
+
+	public Person getAccHolder() {
+		return accHolder;
+	}
+
+	public void setAccHolder(Person accHolder) {
+		this.accHolder = accHolder;
+	}
+
+	
+    	public void deposit(double rupees) {
+    // Set the balance of the account after the money is deposited to the account
+    		balance=balance+rupees;
+  }
+
+  public void withdraw(double rupees) {
+   // Set the balance of the account after the money is withdrawn from the account
+	  if((balance-rupees)<=500.0)
+		  System.out.println("cannot withdraw amount");
+	  else
+		  balance=balance-rupees;
+  }
+
+  public String toString() {
+    // Should return the string in the format:
+    // Name: TempName Age: 68.0 AccNumber: 1333339438704 Balance= 899.0
+	  return name+" "+age+" "+accNum+" "+balance+" ";
+	  
+	  
+  }
+
+  public double getBalance() {
+    // Should return the balance present in the Account
+	  return balance;
+  }
+  
+  public void setBalance(double bal){
+    // Set the balance for the account holder
+	  this.balance=bal;
+  }  
+
+  public void setAccountDetails(String name, float age, double balance) {
+    // Set the account details for the account holder
+	  this.name=name;
+	  this.age=age;
+	  this.balance=balance;
+  }
+  
+  public Person getPerson(){
+	return accHolder;
+    // return the AccountHolder
+  }
+  
+  void display()
+  {
+	  System.out.println();
+  }
+  
+  //main
+  public static void main(String[] args) {
+		
+		
+		Account ac=new Account();
+		ac.setAccountDetails("Priya",22.5f,1000.0);
+		ac.setAccNum(90875243);
+		//ac.setBalance(500.00);
+		ac.deposit(200.00);
+		ac.withdraw(400.00);
+		System.out.println(""+ac.toString());
+		
+		}
+  
+}
+
+
+
+
+

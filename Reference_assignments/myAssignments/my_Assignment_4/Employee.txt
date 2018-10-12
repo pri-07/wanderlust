@@ -1,0 +1,90 @@
+package com.cg.eis.bean;
+
+import com.cg.eis.service.Service;
+import com.cg.eis.exception.EmployeeException;
+
+import java.util.*;
+public class Employee {
+
+  String name;
+  public double salary;
+  String id;
+  String Designation;
+  public static String InsuranceScheme;
+  
+  String a="Scheme A";
+  String b="Scheme B";
+  String c="Scheme C";
+  String n="No Scheme";
+  
+  private String getInsuranceScheme(double salary){
+    //Write your code here
+    //should return the schemes as schemen a, scheme b, scheme c, no scheme
+    //, null or raise an exception.
+	  
+	  if((salary>5000 && salary< 20000) && (Designation.equals("System Associate")))
+	  {
+		  return c;
+	  }
+	  else if((salary>=20000 && salary< 40000) && (Designation.equals("Programmer")))
+	  {
+		  return b;
+	  }
+	  else if((salary>=40000) && (Designation.equals("Manager")))
+	  {
+		  return a;
+	  }
+	  else if((salary<5000) && (Designation.equals("Clerk")))
+	  {
+		  return n;
+	  }
+	  else{
+		  return "No scheme";
+	  }
+	  
+	
+}
+	  
+  
+  
+  public static void main(String[] args) 
+  {
+	  
+	  Employee e1=new Employee();
+	 System.out.print(e1.getEmployeeDetails());
+	 InsuranceScheme=e1.getInsuranceScheme(e1.salary);
+	 System.out.print(InsuranceScheme+ "]");
+	 System.out.println(); 
+	 
+	 Service ser=new Service();
+	 int maxins=ser.maxMedicalInsurance(e1);
+	 System.out.println("Maximum Insurance :"+maxins);
+	 
+	 EmployeeException emp1=new EmployeeException();
+	 emp1.display(e1);
+  
+  }
+
+  public String getEmployeeDetails() {
+    //Write your code here 
+    //Should return a String in the below format
+   //Name: name Id: id Salary: salary Designation: Designation InsuranceScheme: InsuranceScheme
+	  
+   Scanner sc=new Scanner(System.in);
+    System.out.println("Input details:");
+    System.out.println("ID:");
+    id=sc.nextLine();
+    System.out.println("Name:");
+   name=sc.nextLine();
+    System.out.println("Designation:");
+    Designation=sc.nextLine();
+    System.out.println("Salary:");
+    salary=sc.nextDouble();
+    
+	return "Employee [name=" + name + ", salary=" + salary + ", id=" + id + ", Designation=" + Designation + ", InsuranceScheme=";
+	  
+	    
+  }
+  
+
+}

@@ -1,0 +1,49 @@
+
+class Account
+{
+    double balance;
+        boolean withdraw(double bal)
+        {
+            this.balance=this.balance-bal;
+            return true;
+        }        
+
+    }    
+}
+class SavingAccount extends Account
+{
+    SavingAccount(int b)
+    {
+        this.balance=b;
+    }
+    final int minBalance=500;
+    boolean withdraw(double bal)
+    {
+        if(this.balance-bal>=minBalance)
+        {
+            this.balance=this.balance-bal;
+            return true;
+        }
+        else 
+        return false;
+    }
+}
+class CurrentAccount extends Account
+{
+    CurrentAccount(int b)
+    {
+        this.balance=b;
+    }
+    int overDraftLimit=-2000;
+    boolean withdraw(double bal)
+    {
+        if(this.balance-bal>=overDraftLimit)
+        {
+            this.balance=this.balance-bal;
+            return true;
+            
+        }
+        else
+        return false;
+    }
+}

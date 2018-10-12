@@ -1,0 +1,33 @@
+package myPackage6;
+
+import java.util.*;
+
+class Source{
+	public List<String> removeElements(List<String> l1,List<String> l2){
+		//Write your code here
+			l1.removeAll(l2);
+			return l1;
+	}
+	
+	public static void main(String[] args) {	
+		
+		Source s=new Source();
+			
+			List<String> l1=new ArrayList<String>();
+			l1.add("a");
+			l1.add("b");
+			l1.add("c");
+			
+
+			List<String> l2=new ArrayList<String>();
+			l2.add("a");
+			l2.add("x");
+			l2.add("z");
+			l2.add("c");
+			l2.add("y");
+			
+			l1 =s.removeElements(l1,l2);
+			System.out.println(l1);
+		
+		}
+}

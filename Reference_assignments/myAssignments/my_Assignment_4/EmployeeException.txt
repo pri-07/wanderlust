@@ -1,0 +1,24 @@
+package com.cg.eis.exception;
+
+import com.cg.eis.bean.Employee;
+
+public class EmployeeException extends Exception{
+    //Write your code here
+	public void display(Employee e1)
+	{
+		if(e1.salary<3000)
+		{
+			try
+			{
+				throw new Exception("Salary shouldnt be lower than 3000");
+			}
+			catch(Exception e)
+			{
+				
+				System.out.println("Caught Exception");
+				System.out.println(e.getMessage());
+			}
+		}
+	}
+
+}

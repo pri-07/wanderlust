@@ -1,0 +1,39 @@
+package com.cg.eis.service;
+
+import com.cg.eis.bean.Employee;
+import com.cg.eis.exception.EmployeeException;
+
+interface EmployeeService {
+  //Write your code here
+	int SchemeCBal=1000;
+	int SchemeBBal=5000;
+	int SchemeABal=15000;
+	
+	abstract public int maxMedicalInsurance(Employee e1);
+}
+
+
+public class Service implements EmployeeService {
+ //Write your code here
+	@Override
+	public int maxMedicalInsurance(Employee e1){
+		String s;
+		s=e1.InsuranceScheme;
+		if(s.equals("Scheme A"))
+		{
+			return SchemeABal;
+		}
+		else if(s.equals("Scheme B"))
+		{
+			return SchemeBBal;
+		}
+		else if(s.equals("Scheme C"))
+				{
+					return SchemeCBal;
+				}
+		else{
+			return 0;
+		}
+		
+	}
+}

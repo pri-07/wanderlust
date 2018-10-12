@@ -1,0 +1,24 @@
+package myPackage7;
+
+import java.util.*;
+
+class Source{
+	
+	public HashMap<Integer,Integer> getSquares(int numbers[]){
+	    //Write your code here
+		HashMap<Integer,Integer> hm=new HashMap<Integer,Integer>();
+		
+		for(int a:numbers)
+		{
+			hm.put(a, a*a);
+		}
+	    return hm;
+		
+	}
+	public static void main(String[] args) {
+		
+		Source s=new Source();
+		int numbers[]={1,2,3};
+		System.out.println(s.getSquares(numbers));
+	}	
+}

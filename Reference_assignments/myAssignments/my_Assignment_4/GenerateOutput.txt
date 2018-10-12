@@ -1,0 +1,5 @@
+package com.cg.eis.pl;
+
+public class GenerateOutput {
+  //write your code here
+}

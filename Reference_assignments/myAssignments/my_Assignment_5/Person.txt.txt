@@ -1,0 +1,97 @@
+package myPackage5;
+
+abstract class Account
+{
+	long accNum;
+	double balance;
+	Person accHolder;
+	
+	//getters and setters
+	public long getAccNum() {
+		return accNum;
+	}
+	public void setAccNum(long accNum) {
+		this.accNum = accNum;
+	}
+
+	public Person getAccHolder() {
+		return accHolder;
+	}
+	public void setAccHolder(Person accHolder) {
+		this.accHolder = accHolder;
+	}
+	
+	//methods
+	public void deposit(double rupees)
+	{
+		balance=balance+rupees;
+	}
+	
+	abstract void withdraw(double rupees);
+	
+	public double getBalance() {
+		return balance;
+	}
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+
+	
+}
+class Person extends Account
+{
+	String name;
+	float age;
+	
+	//getter and setters
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public float getAge() {
+		return age;
+	}
+
+	public void setAge(float age) {
+		this.age = age;
+	}
+
+	void setDetails(String name,float age,double balance)
+	{
+		this.name=name;
+		this.age=age;
+		this.balance=balance;
+	}
+	public void withdraw(double rupees)
+	{
+		if(balance-rupees<=500.0)
+		{
+			System.out.println("Cannot withdraw");
+		}		
+		else
+		{
+			balance=balance-rupees;
+			System.out.println("Balance is "+balance);
+		}
+			
+	}
+	
+	@Override
+	public String toString() {
+		return "Person [name=" + name + ", age=" + age + ", accNum=" + accNum+ ", balance=" + balance + "]";
+	}
+
+	public static void main(String[] args) {
+		Person p=new Person();
+		p.setAccNum(123456789);
+		p.setDetails("Priya",22.0f,1000.0);
+		p.deposit(10.0);
+		p.withdraw(200.0);
+		System.out.println(""+p.toString());
+	}
+	
+}
